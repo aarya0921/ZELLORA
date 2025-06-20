@@ -1,38 +1,31 @@
-from langchain_community.llms import HuggingFaceHub
-from langchain.chains import LLMChain
+from zellora_llm import HuggingFaceLLM
 from dotenv import load_dotenv
-import streamlit as st
 import os
+import streamlit as st
 from langchain_core.prompts import load_prompt
 
 # Load environment variables
 load_dotenv()
+api_key = os.getenv("HUGGINGFACEHUB_API_TOKEN")
 
-# Use secrets from Streamlit Cloud
-api_key = st.secrets["HUGGINGFACEHUB_API_TOKEN"]
-
-# Set page config
-st.set_page_config(page_title="Zellora: Your AI Text Assistant")
+st.set_page_config(page_title="Zellora", layout="centered")
 st.title("Zellora: Your AI Text Assistant")
 
-# Take user input
 user_input = st.text_input("Ask me:")
 
-# Load prompt
+# Load your prompt template
 template = load_prompt("prompt_template.json")
 
-# Initialize HuggingFaceHub LLM
-llm = HuggingFaceHub(
+# Initialize your custom LLM
+llm = HuggingFaceLLM(
     repo_id="HuggingFaceH4/zephyr-7b-beta",
-    huggingfacehub_api_token=api_key,
-    model_kwargs={"max_new_tokens": 1024, "temperature": 0.5}
+    api_token=api_key,
+    max_tokens=1024,
+    temperature=0.5
 )
 
-# Create chain
-chat = LLMChain(llm=llm, prompt=template)
-
-# Generate response
-if st.button('Search') and user_input:
+# When button is clicked
+if st.button("Search") and user_input:
     with st.spinner("Thinking..."):
         final_prompt = template.format(text=user_input)
         response = llm(final_prompt)
