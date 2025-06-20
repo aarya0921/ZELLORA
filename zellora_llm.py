@@ -6,14 +6,11 @@ class HuggingFaceLLM:
         self.max_tokens = max_tokens
         self.temperature = temperature
 
-    def _call(self, prompt, stop=None):
-        response = self.client.text_generation(
+    def __call__(self, prompt):
+        return self.client.text_generation(
             prompt,
             max_new_tokens=self.max_tokens,
             temperature=self.temperature,
-            stop_sequences=stop if stop else None,
-        )
-        return response
-
-    def __call__(self, prompt):
-        return self._call(prompt)
+            do_sample=True,
+            return_full_text=False
+        ).strip()
