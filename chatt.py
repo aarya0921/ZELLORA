@@ -32,7 +32,8 @@ llm = HuggingFaceHub(
 chat = LLMChain(llm=llm, prompt=template)
 
 # Generate response
-if st.button("Search") and user_input:
+if st.button('Search') and user_input:
     with st.spinner("Thinking..."):
-        response = chat.invoke({"text": user_input})
-        st.write(response["text"])
+        final_prompt = template.format(text=user_input)
+        response = llm(final_prompt)
+        st.write(response)
