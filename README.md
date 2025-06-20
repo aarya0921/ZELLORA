@@ -13,10 +13,10 @@ Features:-
 
 Libraries used:-
 
-Streamlit: Frontend framework to build the interactive chatbot UI 
-langchain: Framework to structure LLM chains (prompt → LLM → output) 
-langchain_huggingface: Integration with Hugging Face models through LangChain 
-huggingface_hub: Connects to Hugging Face model API securely 
-dotenv: Loads API keys securely from a `.env` file
-os: Used to access environment variables in Python 
-PromptTemplate/load_prompt: Used to load a reusable prompt format for Zephyr-7B 
+-Streamlit: Frontend framework to build the interactive chatbot UI 
+-langchain: Framework to structure LLM chains (prompt → LLM → output) 
+-langchain_huggingface: Integration with Hugging Face models through LangChain 
+-huggingface_hub: Connects to Hugging Face model API securely 
+-dotenv: Loads API keys securely from a `.env` file
+-os: Used to access environment variables in Python 
+-PromptTemplate/load_prompt: Used to load a reusable prompt format for Zephyr-7B 
