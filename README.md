@@ -11,12 +11,25 @@ Features:-
 - Prompt templating with LangChain
 - Hugging Face token authentication via `.env`
 
-Libraries used:-
+## 📚 Libraries Used
 
-Streamlit: Frontend framework to build the interactive chatbot UI 
-langchain: Framework to structure LLM chains (prompt → LLM → output) 
-langchain_huggingface: Integration with Hugging Face models through LangChain 
-huggingface_hub: Connects to Hugging Face model API securely 
-dotenv: Loads API keys securely from a `.env` file
-os: Used to access environment variables in Python 
-PromptTemplate/load_prompt: Used to load a reusable prompt format for Zephyr-7B 
+- **[Streamlit](https://streamlit.io/)**  
+  Used to build the interactive web interface for the chatbot. It provides easy-to-use components like text input, buttons, and layout for rapid app development.
+
+- **[LangChain](https://docs.langchain.com/)**  
+  Framework for chaining together LLM components such as prompts, models, and output parsing. Used to create a structured flow from input to response.
+
+- **`langchain_huggingface`**  
+  Enables integration of Hugging Face models (like Zephyr-7B) with LangChain for seamless model interaction and LLM-based chat.
+
+- **[huggingface_hub](https://huggingface.co/docs/huggingface_hub/)**  
+  Provides tools to securely access and interact with models hosted on Hugging Face via API.
+
+- **[python-dotenv](https://pypi.org/project/python-dotenv/)**  
+  Loads environment variables (such as Hugging Face API keys) from a `.env` file to keep sensitive data out of the source code.
+
+- **`os` (Python standard library)**  
+  Used to access environment variables from the system and interface with the `.env` configuration.
+
+- **`PromptTemplate` / `load_prompt` (LangChain)**  
+  Used to define and load a consistent, reusable prompt structure that guides the LLM’s response formatting and behavior.
