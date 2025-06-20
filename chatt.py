@@ -34,5 +34,5 @@ chat = LLMChain(llm=llm, prompt=template)
 # Generate response
 if st.button("Search") and user_input:
     with st.spinner("Thinking..."):
-        response = chat.invoke({"input": user_input})
+        response = chat.invoke({"text": user_input})
         st.write(response["text"])
